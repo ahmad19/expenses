@@ -1,4 +1,4 @@
-<%=form_with(url: upload_path, method: 'post') do |form| %>
+<%=form_with(url: upload_path, method: 'post', data: { turbo: false }) do |form| %>
   <h2 class="text-base font-semibold leading-7 text-gray-900">Expenses Information</h2>
   <p class="mt-1 text-sm leading-6 text-gray-600">Mention details of the expenses you are uploading</p>
 
