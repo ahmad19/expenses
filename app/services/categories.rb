@@ -1,0 +1,18 @@
+module Categories
+  EATING_OUT='EATING OUT'.freeze
+  GROCERIES='GROCERIES'.freeze
+  SHOPPING='SHOPPING'.freeze
+  BIKE='BIKE'.freeze
+  PETROL='PETROL'.freeze
+  MEDICINES='MEDICINES'.freeze
+  MAINTENANCE='MAINTENANCE'.freeze
+  HEALTH='HEALTH'.freeze
+  BILLS='BILLS'.freeze
+  ENTERTAINMENT='ENTERTAINMENT'.freeze
+  TRAVEL='TRAVEL'.freeze
+  EDUCATION='EDUCATION'.freeze
+  PROJECT='PROJECT'.freeze
+  DONATION='DONATION'.freeze
+  INSURANCE='INSURANCE'.freeze
+  OTHERS='OTHERS'.freeze
+end

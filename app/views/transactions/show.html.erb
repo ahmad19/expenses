@@ -1,0 +1,8 @@
+<div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
+  <% @transaction_data.each do |category, data| %>
+    <div class="feature col">
+      <%= category %> - <%= data.sum { |d| d['amount'] } %>
+      <%= line_chart data.map { |d| [d['date'], d['amount']] }, label: category %>
+    </div>
+  <% end %>  
+</div>

@@ -1,5 +1,5 @@
 class UploadController < ApplicationController
-  def index; end
+  def new; end
 
   def create
     file_data = File.read(params[:file].tempfile)
@@ -16,12 +16,15 @@ class UploadController < ApplicationController
       end
       final
     end
+    return if @result.empty?
+
+    @transaction = Transaction.new
+    @transaction.data = @result
+    @transaction.month = params[:month]
+    @transaction.year = params[:year]
+    @transaction.save!
     @general_result = @result.group_by { |t| t[:category] }.map { |k, v| [k, v.sum { |t| t[:amount] }] }.to_h
     @result = @result.group_by { |t| t[:category] }
-    # save result into rails cache for 1 hour
-    Rails.cache.clear
-    Rails.cache.write("transactions_grouped_with_total_amount", @general_result, expires_in: 1.hour)
-    Rails.cache.write("transactions_grouped", @result, expires_in: 1.hour)
     redirect_to root_path
   end
 end

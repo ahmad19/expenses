@@ -1,22 +1,8 @@
-<% @transactions_grouped.each do |category, transaction| %>
-  <h2 class="text-2xl font-bold leading-7 text-gray-900 sm:truncate sm:text-3xl sm:tracking-tight"><%= category.humanize %></h2>
-  <table class="table-auto border-collapse">
-    <thead>
-      <tr>
-        <th class="px-4 py-2 border">Date</th>
-        <th class="px-4 py-2 border">Description</th>
-        <th class="px-4 py-2 border">Amount</th>
-      </tr>
-    </thead>
-    <tbody>
-      <%transaction.each do |tr|%>
-        <tr>
-          <td class="px-4 py-2 border"><%= tr[:date] %></td>
-          <td class="px-4 py-2 border"><%= tr[:type] %></td>
-          <td class="px-4 py-2 border"><%= tr[:amount] %></td>
-        </tr>
-      <% end %>  
-    </tbody>
-  </table>
-<%end%>
-
+<div class="container px-4 py-5">
+  <h2 class="pb-2 border-bottom">Expenses for <%#=month %> (<a href="/transactions/3">View in details</a>)</h2>
+  <div class="row g-4 py-5 row-cols-1 row-cols-lg-1">
+    <div class="feature col">
+      <%= bar_chart @chartkick_data, height: '1200px' %>
+    </div>
+  </div>
+</div>
